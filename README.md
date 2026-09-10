@@ -45,10 +45,10 @@ URL : https://rouxkool.github.io/tataki-portail/
 |---|---|---|
 | Dashboard Instagram | `RouxKool/tataki-dashboard` | https://rouxkool.github.io/tataki-dashboard/ |
 | Est-ce qu'on l'a déjà fait ? | `RouxKool/insta-recherche` | https://rouxkool.github.io/insta-recherche/ |
-| Panel | Cezanne Trummer | https://cezannetrummer.github.io/tataki-panel/ |
-| Commentaires | `RouxKool/tataki-commentaires` | https://tataki-commentaires.alessandro-mauro24.workers.dev/ |
+| Panel virtuel | Cezanne Trummer | https://cezannetrummer.github.io/tataki-panel/ |
+| Extracteur de commentaires | `RouxKool/tataki-commentaires` | https://tataki-commentaires.alessandro-mauro24.workers.dev/ |
 
-Le lien Commentaires est protégé par Cloudflare Zero Trust Access : un écran
+Le lien de l'extracteur de commentaires est protégé par Cloudflare Zero Trust Access : un écran
 d'authentification à l'ouverture est normal.
 
 ## Design

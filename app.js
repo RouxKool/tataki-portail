@@ -24,13 +24,13 @@ const TOOLS = [
     url: "https://rouxkool.github.io/insta-recherche/",
   },
   {
-    title: "Panel",
+    title: "Panel virtuel",
     description:
       "Sept états motivationnels de l'audience romande des moins de 26 ans. Soumets un concept, un angle, un post ou une question.",
     url: "https://cezannetrummer.github.io/tataki-panel/",
   },
   {
-    title: "Commentaires",
+    title: "Extracteur de commentaires",
     description:
       "Exporte en CSV tous les commentaires et réponses des posts d'une période donnée.",
     url: "https://tataki-commentaires.alessandro-mauro24.workers.dev/",
