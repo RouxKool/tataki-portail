@@ -1,0 +1,9 @@
+{
+  "name": "tataki-portail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portail des outils internes de l'equipe Tataki",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

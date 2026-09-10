@@ -1,0 +1,320 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f0f10;
+  --card-bg: #1a1a1c;
+  --text: #f2f2f2;
+  --muted: #a0a0a5;
+  --border: #2c2c2f;
+  --accent: #feeb00;
+  --accent-text: #0f0f10; /* texte noir sur le jaune : contraste 17:1, au-delà de WCAG AA */
+  --display: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain de fond — même recette que le dashboard, pour la continuité visuelle */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/bg-texture.png");
+  background-repeat: repeat;
+  background-size: 1400px 1400px;
+  opacity: 0.1;
+  pointer-events: none;
+  /* Derrière tout le reste : sinon le grain vient ternir le jaune des cartes
+     au survol. */
+  z-index: -1;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 56px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ---------- En-tête ---------- */
+
+.masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 9vw, 4.75rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  animation: rise 0.6s ease both;
+}
+
+.rule {
+  display: block;
+  width: 72px;
+  height: 6px;
+  background: var(--accent);
+  animation: sweep 0.7s 0.1s ease both;
+}
+
+.tagline {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--muted);
+  animation: rise 0.6s 0.15s ease both;
+}
+
+/* ---------- Grille ---------- */
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card-wrap {
+  display: flex;
+  /* --i est posé par app.js : décale l'apparition de chaque carte */
+  animation: rise 0.55s ease both;
+  animation-delay: calc(0.22s + var(--i, 0) * 0.06s);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 208px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card-bg);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease,
+    background-color 0.18s ease, color 0.18s ease;
+}
+
+.card-number {
+  position: absolute;
+  right: 12px;
+  bottom: -18px;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 1;
+  color: #ffffff;
+  opacity: 0.04;
+  z-index: -1;
+  transition: opacity 0.18s ease, color 0.18s ease;
+}
+
+.card-tag {
+  align-self: flex-start;
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.card-tag-empty {
+  visibility: hidden;
+}
+
+.card-title {
+  margin: 4px 0 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--muted);
+  transition: color 0.18s ease;
+}
+
+.card-arrow {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+/* --- Survol : la carte se remplit de jaune --- */
+
+.card:hover {
+  transform: translateY(-4px);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.card:hover .card-description,
+.card:hover .card-tag,
+.card:hover .card-arrow {
+  color: var(--accent-text);
+}
+
+.card:hover .card-tag {
+  border-color: rgba(15, 15, 16, 0.35);
+}
+
+.card:hover .card-arrow {
+  transform: translateX(6px);
+}
+
+.card:hover .card-number {
+  color: var(--accent-text);
+  opacity: 0.12;
+}
+
+/* Au clavier : contour jaune franc, sans remplir la carte — le texte ne
+   change pas de couleur d'un coup à chaque tabulation. */
+.card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.card:focus-visible .card-arrow {
+  transform: translateX(6px);
+}
+
+.card:active {
+  transform: translateY(-1px);
+}
+
+/* --- Outil pas encore en ligne --- */
+
+.card-soon {
+  cursor: default;
+  border-style: dashed;
+  color: var(--muted);
+}
+
+.card-soon .card-title {
+  color: var(--muted);
+}
+
+.card-soon .card-arrow {
+  color: var(--border);
+}
+
+/* ---------- Pied de page ---------- */
+
+.footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer p {
+  margin: 12px 0 0;
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sweep {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    transform-origin: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark,
+  .rule,
+  .tagline,
+  .card-wrap {
+    animation: none;
+  }
+
+  .card,
+  .card-arrow,
+  .card-number {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-visible {
+    transform: none;
+  }
+
+  .card:hover .card-arrow,
+  .card:focus-visible .card-arrow {
+    transform: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 36px 18px 24px;
+    gap: 28px;
+  }
+
+  .card {
+    min-height: 172px;
+  }
+}
