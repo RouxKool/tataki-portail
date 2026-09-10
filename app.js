@@ -14,7 +14,7 @@ const TOOLS = [
   {
     title: "Dashboard Instagram",
     description:
-      "Taux de réponse aux commentaires, engagement, reach et abonnés — semaine par semaine.",
+      "Taux de réponse aux commentaires, engagement, reach et abonnés semaine par semaine.",
     url: "https://rouxkool.github.io/tataki-dashboard/",
   },
   {
@@ -25,9 +25,9 @@ const TOOLS = [
   },
   {
     title: "Panel",
-    description: "L'outil panel développé par Cezanne.",
+    description:
+      "Sept états motivationnels de l'audience romande des moins de 26 ans. Soumets un concept, un angle, un post ou une question.",
     url: "https://cezannetrummer.github.io/tataki-panel/",
-    tag: "externe",
   },
   {
     title: "Commentaires",

@@ -59,3 +59,10 @@ exactement celles de `tataki-dashboard` et `tataki-commentaires`
 ne crée aucune rupture visuelle. La texture de grain du fond est le même
 `assets/bg-texture.png` que le dashboard. Titres en Archivo (Google Fonts), avec
 repli sur la pile système.
+
+Le logo est le PNG fourni par l'équipe (`assets/logo-tataki.png`), passé en
+négatif pour le fond noir : tel quel, ses blocs noirs disparaissaient et il ne
+restait que les lettres blanches en suspension. Deux variantes générées à
+partir de l'original sont dans `assets/` — `logo-tataki-jaune.png` (utilisée)
+et `logo-tataki-blanc.png`. Pour basculer sur la blanche, changer le `src` de
+l'`<img class="logo">` dans `index.html`.
