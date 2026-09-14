@@ -20,7 +20,7 @@ const TOOLS = [
   {
     title: "Est-ce qu'on l'a déjà fait ?",
     description:
-      "Cherche dans tous les posts publiés pour savoir si un sujet a déjà été couvert.",
+      "Cherche dans tous les posts publiés pour savoir si un sujet a déjà été couvert. Remonte jusqu'à janvier 2024.",
     url: "https://rouxkool.github.io/insta-recherche/",
   },
   {
@@ -32,7 +32,7 @@ const TOOLS = [
   {
     title: "Extracteur de commentaires",
     description:
-      "Exporte en CSV tous les commentaires et réponses des posts d'une période donnée.",
+      "Exporte en CSV tous les commentaires et réponses des posts d'une période donnée. Deux semaines maximum par export.",
     url: "https://tataki-commentaires.alessandro-mauro24.workers.dev/",
     tag: "accès restreint",
   },
