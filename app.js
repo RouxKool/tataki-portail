@@ -15,13 +15,13 @@ const TOOLS = [
     title: "Dashboard Instagram",
     description:
       "Taux de réponse aux commentaires, engagement, reach et abonnés semaine par semaine.",
-    url: "https://rouxkool.github.io/tataki-dashboard/",
+    url: "https://srgssr.github.io/Ttki-Dashboard-IG/",
   },
   {
     title: "Est-ce qu'on l'a déjà fait ?",
     description:
       "Cherche dans tous les posts publiés pour savoir si un sujet a déjà été couvert. Remonte jusqu'à janvier 2024.",
-    url: "https://rouxkool.github.io/insta-recherche/",
+    url: "https://srgssr.github.io/Ttki-Finder-IG/",
   },
   {
     title: "Panel virtuel",
